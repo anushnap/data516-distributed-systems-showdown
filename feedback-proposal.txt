@@ -1,0 +1,12 @@
+================================================================
+anushnap
+
+Anushna Prakash & Preston Stringham DATA 516 - Scalable Data & Algorithms October 29, 2021
+Project Proposal: Benchmarking TPC-H And IMDb Data On Popular DBMSs
+
+Project proposal feedback:
+
+I like that you are using the IMDB data, and seem already familiar
+with it.  (It takes a while to figure it out.)  Looks good.
+
+10pt
