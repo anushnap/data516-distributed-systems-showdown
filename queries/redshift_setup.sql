@@ -43,3 +43,9 @@ CREATE TABLE principals(
     job VARCHAR(255),
     characters VARCHAR(255)
 );
+
+CREATE TABLE ratings(
+    tconst VARCHAR(255),
+    averageRating REAL,
+    numVotes INT
+);
