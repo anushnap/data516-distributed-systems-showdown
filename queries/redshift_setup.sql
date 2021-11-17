@@ -58,3 +58,24 @@ CREATE TABLE name_basics(
     primaryProfession SUPER,
     knownForTitles SUPER
 );
+
+copy akas from 's3://data516-project-data-1/akas' REGION 'us-west-2'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+
+copy title_basics from 's3://data516-project-data-1/title_basics' REGION 'us-west-2'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+
+copy crew from 's3://data516-project-data-1/crew' REGION 'us-west-2'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+
+copy episode from 's3://data516-project-data-1/episode' REGION 'us-west-2'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+
+copy principals from 's3://data516-project-data-1/principals' REGION 'us-west-2'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+
+copy ratings from 's3://data516-project-data-1/ratings' REGION 'us-west-2'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+
+copy name_basics from 's3://data516-project-data-1/name_basics' REGION 'us-west-2'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
