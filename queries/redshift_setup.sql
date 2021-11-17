@@ -18,5 +18,6 @@ CREATE TABLE title_basics(
     isAdult BOOLEAN DEFAULT TRUE,
     startYear INT,
     endYear INT,
-    runtimeMinutes INT
+    runtimeMinutes INT,
+    genres SUPER
 );
