@@ -5,8 +5,8 @@ CREATE TABLE akas(
     region VARCHAR(255),
     language VARCHAR(255),
     -- IMDB SAYS THIS IS AN ARRAY TYPE, LOOKS TO BE SEPARATED BY SPACES?
-    types VARCHAR(255),
-    attributes VARCHAR(255),
+    types SUPER,
+    attributes SUPER,
     isOriginalTitle BOOLEAN DEFAULT TRUE
 );
 
@@ -18,5 +18,5 @@ CREATE TABLE title_basics(
     isAdult BOOLEAN DEFAULT TRUE,
     startYear INT,
     endYear INT,
-    runtimeMinutes 
+    runtimeMinutes INT
 );
