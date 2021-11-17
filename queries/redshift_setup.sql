@@ -49,3 +49,12 @@ CREATE TABLE ratings(
     averageRating REAL,
     numVotes INT
 );
+
+CREATE TABLE name_basics(
+    nconst VARCHAR(255),
+    primaryName VARCHAR(255),
+    birthYear INT,
+    deathYear INT,
+    primaryProfession SUPER,
+    knownForTitles SUPER
+);
