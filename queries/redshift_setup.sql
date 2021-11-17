@@ -27,3 +27,10 @@ CREATE TABLE crew(
     directors SUPER,
     writers SUPER
 );
+
+CREATE TABLE episode(
+    tconst VARCHAR(255),
+    parentTconst VARCHAR(255),
+    seasonNumber INT,
+    episodeNumber INT
+);
