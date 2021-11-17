@@ -21,3 +21,9 @@ CREATE TABLE title_basics(
     runtimeMinutes INT,
     genres SUPER
 );
+
+CREATE TABLE crew(
+    tconst VARCHAR(255),
+    directors SUPER,
+    writers SUPER
+);
