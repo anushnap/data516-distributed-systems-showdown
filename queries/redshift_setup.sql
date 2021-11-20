@@ -83,7 +83,6 @@ IGNOREHEADER 1;
 
 copy principals from 's3://data516-project-data-1/principals' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
-NULL AS 'NA'
 TRUNCATECOLUMNS
 IGNOREHEADER 1;
 
