@@ -5,8 +5,8 @@ CREATE TABLE akas(
     region VARCHAR(255),
     language VARCHAR(255),
     -- IMDB SAYS THIS IS AN ARRAY TYPE, LOOKS TO BE SEPARATED BY SPACES?
-    types SUPER,
-    attributes SUPER,
+    types VARCHAR(255),
+    attributes VARCHAR(255),
     isOriginalTitle BOOLEAN DEFAULT TRUE
 );
 
@@ -19,13 +19,13 @@ CREATE TABLE title_basics(
     startYear INT,
     endYear INT,
     runtimeMinutes INT,
-    genres SUPER
+    genres VARCHAR(255)
 );
 
 CREATE TABLE crew(
     tconst VARCHAR(255),
-    directors SUPER,
-    writers SUPER
+    directors VARCHAR(255),
+    writers VARCHAR(255)
 );
 
 CREATE TABLE episode(
@@ -55,27 +55,34 @@ CREATE TABLE name_basics(
     primaryName VARCHAR(255),
     birthYear INT,
     deathYear INT,
-    primaryProfession SUPER,
-    knownForTitles SUPER
+    primaryProfession VARCHAR(255),
+    knownForTitles VARCHAR(255)
 );
 
 copy akas from 's3://data516-project-data-1/akas' REGION 'us-west-2'
-CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+IGNOREHEADER 1;
 
 copy title_basics from 's3://data516-project-data-1/title_basics' REGION 'us-west-2'
-CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+IGNOREHEADER 1;
 
 copy crew from 's3://data516-project-data-1/crew' REGION 'us-west-2'
-CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+IGNOREHEADER 1;
 
 copy episode from 's3://data516-project-data-1/episode' REGION 'us-west-2'
-CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+IGNOREHEADER 1;
 
 copy principals from 's3://data516-project-data-1/principals' REGION 'us-west-2'
-CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+IGNOREHEADER 1;
 
 copy ratings from 's3://data516-project-data-1/ratings' REGION 'us-west-2'
-CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+IGNOREHEADER 1;
 
 copy name_basics from 's3://data516-project-data-1/name_basics' REGION 'us-west-2'
-CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t';
+CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+IGNOREHEADER 1;
