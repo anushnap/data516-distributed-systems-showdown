@@ -4,7 +4,6 @@ CREATE TABLE akas(
     title VARCHAR(255),
     region VARCHAR(255),
     language VARCHAR(255),
-    -- IMDB SAYS THIS IS AN ARRAY TYPE, LOOKS TO BE SEPARATED BY SPACES?
     types VARCHAR(255),
     attributes VARCHAR(255),
     isOriginalTitle BOOLEAN DEFAULT TRUE
