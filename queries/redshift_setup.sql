@@ -61,28 +61,42 @@ CREATE TABLE name_basics(
 
 copy akas from 's3://data516-project-data-1/akas' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+NULL AS 'NA'
+TRUNCATECOLUMNS
 IGNOREHEADER 1;
 
 copy title_basics from 's3://data516-project-data-1/title_basics' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+NULL AS 'NA'
+TRUNCATECOLUMNS
 IGNOREHEADER 1;
 
 copy crew from 's3://data516-project-data-1/crew' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+NULL AS 'NA'
+TRUNCATECOLUMNS
 IGNOREHEADER 1;
 
 copy episode from 's3://data516-project-data-1/episode' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+NULL AS 'NA'
+TRUNCATECOLUMNS
 IGNOREHEADER 1;
 
 copy principals from 's3://data516-project-data-1/principals' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+NULL AS 'NA'
+TRUNCATECOLUMNS
 IGNOREHEADER 1;
 
 copy ratings from 's3://data516-project-data-1/ratings' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+NULL AS 'NA'
+TRUNCATECOLUMNS
 IGNOREHEADER 1;
 
 copy name_basics from 's3://data516-project-data-1/name_basics' REGION 'us-west-2'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::823963482426:role/RedshiftRole' delimiter '\t'
+NULL AS 'NA'
+TRUNCATECOLUMNS
 IGNOREHEADER 1;
