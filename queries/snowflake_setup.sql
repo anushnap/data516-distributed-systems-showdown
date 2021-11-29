@@ -85,3 +85,24 @@ file_format = (TYPE='csv'
                SKIP_HEADER = 1
                NULL_IF = ('NA', '\\N'))
 ;
+
+copy into ratings from 's3://data516-project-data-2/imdb/title.ratings.tsv'
+file_format = (TYPE='csv'
+               FIELD_DELIMITER = '\t'
+               SKIP_HEADER = 1
+               NULL_IF = ('NA', '\\N'))
+;
+
+copy into principals from 's3://data516-project-data-2/imdb/title.principals.tsv'
+file_format = (TYPE='csv'
+               FIELD_DELIMITER = '\t'
+               SKIP_HEADER = 1
+               NULL_IF = ('NA', '\\N'))
+TRUNCATECOLUMNS = TRUE;
+
+copy into akas from 's3://data516-project-data-2/imdb/title_akas.tsv'
+file_format = (TYPE='csv'
+               FIELD_DELIMITER = '\t'
+               SKIP_HEADER = 1
+               NULL_IF = ('NA', '\\N'))
+TRUNCATECOLUMNS = TRUE;
