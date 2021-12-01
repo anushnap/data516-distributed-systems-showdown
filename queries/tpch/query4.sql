@@ -1,24 +1,9 @@
-SELECT
-    l_shipmode,
-    sum(case
-        when o_orderpriority = '1-URGENT'
-            OR o_orderpriority = '2-HIGH'
-            then 1
-        else 0
-    end) as high_line_count,
-    sum(case
-        when o_orderpriority <> '1-URGENT'
-            AND o_orderpriority <> '2-HIGH'
-            then 1
-        else 0
-    end) AS low_line_count
-FROM
-    orders,
-    lineitem
-WHERE
-    o_orderkey = l_orderkey
-    AND l_shipmode in ('MAIL', 'SHIP')
-    AND l_commitdate < l_receiptdate
-    AND l_shipdate < l_commitdate
-GROUP BY
-    l_shipmode;
+SELECT YEAR(l.l_shipdate), n.n_name, s.s_name, p.p_name, AVG(l.l_extendedprice) AS avg_cost, MIN(l.l_extendedprice) AS min_cost, 
+MAX(l.l_extendedprice) as max_cost, SUM(l.l_extendedprice) AS cost_sum
+FROM lineitem l
+INNER JOIN part p ON p.p_partkey = l.l_partkey
+INNER JOIN supplier s ON s.s_suppkey = l.l_suppkey
+INNER JOIN orders o on o.o_orderkey = l.l_orderkey
+INNER JOIN nation n on n.n_nationkey = s.s_nationkey
+WHERE l.l_quantity > 48
+GROUP BY YEAR(l.l_shipdate), n.n_name, s.s_name, p.p_name;

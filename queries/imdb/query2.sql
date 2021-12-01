@@ -1,6 +1,6 @@
-SELECT a.region, tb.startyear, AVG(tb.runtimeminutes) AS avg_runtime, AVG(r.averagerating), AVG(r.numvotes) as avg_votes
-FROM title_basics tb
+SELECT p.job, tb.primarytitle, MIN(r.averagerating), MAX(r.averagerating), AVG(r.averagerating)
+FROM principals p
+INNER JOIN title_basics tb ON tb.tconst = p.tconst
 INNER JOIN ratings r ON r.tconst = tb.tconst
-INNER JOIN akas a ON a.titleid = tb.tconst
-WHERE tb.startyear > 1990 AND tb.runtimeminutes > 30
-GROUP BY a.region, tb.startyear;
+WHERE p.category = 'producer'
+GROUP BY p.job, tb.primarytitle;

@@ -1,18 +1,7 @@
-SELECT
-    l_returnflag,
-    l_linestatus,
-    sum(l_quantity) as sum_qty,
-    sum(l_extendedprice) as sum_base_price,
-    sum(l_extendedprice * (1 - l_discount)) as sum_disc_price,
-    sum(l_extendedprice * (1 - l_discount) * (1 + l_tax)) as sum_charge,
-    avg(l_quantity) as avg_qty,
-    avg(l_extendedprice) as avg_price,
-    avg(l_discount) as avg_disc,
-    count(*) as count_order
-FROM
-    lineitem
-WHERE
-    l_shipdate >= date '1995-12-01'
-GROUP BY
-    l_returnflag,
-    l_linestatus;
+SELECT YEAR(l.l_shipdate), s.s_name, AVG(l.l_extendedprice) AS avg_cost, MIN(l.l_extendedprice) AS min_cost, 
+MAX(l.l_extendedprice) as max_cost, SUM(l.l_extendedprice) AS cost_sum
+FROM lineitem l
+INNER JOIN part p ON p.p_partkey = l.l_partkey
+INNER JOIN supplier s ON s.s_suppkey = l.l_suppkey
+WHERE l.l_quantity > 48
+GROUP BY YEAR(l.l_shipdate), s.s_name;
